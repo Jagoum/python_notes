@@ -76,34 +76,27 @@ class LinkedList:
 
         while current:
             prev = current
-            current = current.next
-            if pos == 0:
-                # you can use this commented one and remove the pos != 1 in the last elif
-                # print(f"Cannot insert {data} at postion zero(1) !!\nPostions start from one(1).")
-                # break
-                pos = pos + 1
-                
-            elif pos == 1:
+            current = current.next  
+            if pos < 0:
+                print("Postion cannot be negative")
+                break
+            elif pos == 1 or pos == 0 :
                 self.prepend(data)
                 break
-            elif count == pos and pos != 1:
+            elif count == pos and pos != 1 or pos != 0:
                 prev.next = new_node
                 new_node.next = current
                 self.length += 1
                 break
             count = count + 1
-        if current == self.head:
-            self.prepend(data)
         
-            
-    
     
 list1 = LinkedList()
 list1.prepend(2)
 list1.prepend(9)
 list1.append(5)
 list1.append(2)
-list1.insert(0,0)
+list1.insert(0,3)
 list1.display()
 print(end="\n")
 list1.display()
