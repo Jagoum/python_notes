@@ -71,7 +71,7 @@ class LinkedList:
     def insert(self, data, pos):
         new_node = Node(data)
         current = self.head
-        count = 0
+        count = 1
         prev = None
 
         while current:
@@ -79,10 +79,10 @@ class LinkedList:
             prev = current
             current = current.next
             count = count + 1
-            if pos < 0 :
-                print("Postion cannot be negative")
+            if pos < 1 :
+                print("Postion cannot be less than 1 ")
                 break
-            elif pos == 0:
+            elif pos == 1:
                 self.prepend(data)
                 break
             elif count == pos:
@@ -105,7 +105,7 @@ list1.prepend(2)
 list1.prepend(9)
 list1.append(5)
 list1.append(2)
-list1.insert(0,1)
+list1.insert(0,6)
 list1.display()
 print(end="\n")
 list1.display()
