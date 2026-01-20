@@ -94,6 +94,28 @@ class LinkedList:
         
         if pos > count:
             self.append(data)
+        
+    def delete_all(self, data):
+        
+        current = self.head
+        prev = None
+        deleted = False
+        while current:
+            if current.data == data:
+                if prev is None:
+                    self.head = current.next
+                else:
+                    prev.next = current.next
+                self.length -= 1
+                deleted = True
+                # Move to next without updating prev, since we removed current
+                current = current.next if prev else self.head
+            else:
+                prev = current
+                current = current.next
+        if not deleted:
+            print(data, "Not found")
+
             
             
             
@@ -106,9 +128,12 @@ list1.prepend(2)
 list1.prepend(9)
 list1.append(5)
 list1.append(2)
+list1.append(2)
 list1.insert(0,6)
 list1.insert(23,1)
+print(end="\n")
 list1.display()
+list1.delete_all(2)
 print(end="\n")
 list1.display()
 print(end="\n")
